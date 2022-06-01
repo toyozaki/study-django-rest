@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "njpwerner.autodocstring",
+    "mechatroner.rainbow-csv",
+    "pkief.material-icon-theme",
+    "christian-kohler.path-intellisense"
+  ]
+}
