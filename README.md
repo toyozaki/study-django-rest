@@ -1,4 +1,4 @@
-# python-template
+# study-django-rest
 
 ## Usage
 
