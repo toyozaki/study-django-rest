@@ -14,6 +14,14 @@ makemigrations:
 check:
 	poetry run python3 study_django_rest/manage.py check
 
+.PHONY: shell
+shell:
+	poetry run python3 study_django_rest/manage.py shell
+
+.PHONY: createsuperuser
+createsuperuser:
+	poetry run python3 study_django_rest/manage.py createsuperuser
+
 .PHONY: psql
 psql:
 	docker compose exec -it database psql -U postgres study_django_rest	
