@@ -1,23 +1,28 @@
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from django.db.models.manager import BaseManager
+from django.views import generic
 
 from .models import Question, Choice
 
 
-def index(request: HttpRequest) -> HttpResponse:
-    latest_question_list = Question.objects.order_by("-pub_date")[:5]
-    return render(request, "polls/index.html", {"latest_question_list": latest_question_list})
+class IndexView(generic.ListView):
+    template_name = "polls/index.html"
+    context_object_name = "latest_question_list"
+
+    def get_queryset(self) -> BaseManager[Question]:
+        return Question.objects.order_by("-pub_date")[:5]
 
 
-def detail(request: HttpRequest, question_id: int) -> HttpResponse:
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/detail.html", {"question": question})
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = "polls/detail.html"
 
 
-def results(request: HttpRequest, question_id: int) -> HttpResponse:
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/results.html", {"question": question})
+class ResultsView(generic.DeleteView):
+    model = Question
+    template_name = "polls/results.html"
 
 
 def vote(request: HttpRequest, question_id: int) -> HttpResponse:
