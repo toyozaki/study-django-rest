@@ -131,6 +131,21 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-debug-toolbar"
+version = "4.1.0"
+description = "A configurable set of panels that display various debug information about the current request/response."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_debug_toolbar-4.1.0-py3-none-any.whl", hash = "sha256:a0b532ef5d52544fd745d1dcfc0557fa75f6f0d1962a8298bd568427ef2fa436"},
+    {file = "django_debug_toolbar-4.1.0.tar.gz", hash = "sha256:f57882e335593cb8e74c2bda9f1116bbb9ca8fc0d81b50a75ace0f83de5173c7"},
+]
+
+[package.dependencies]
+django = ">=3.2.4"
+sqlparse = ">=0.2"
+
+[[package]]
 name = "filelock"
 version = "3.7.0"
 description = "A platform independent file lock."
@@ -595,4 +610,4 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "a7f9c49fae792bb80c9070bcd54a34665b67fee509047a6d2fdd146f9e6c7a36"
+content-hash = "780c6d5bcb452571ad4355ccb40b9ff4ef8ca856bbf35736bc7297914d1b6999"
