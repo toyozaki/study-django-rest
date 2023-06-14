@@ -18,6 +18,10 @@ check:
 shell:
 	poetry run python3 study_django_rest/manage.py shell
 
+.PHONY: test
+test:
+	poetry run python3 study_django_rest/manage.py test polls
+
 .PHONY: createsuperuser
 createsuperuser:
 	poetry run python3 study_django_rest/manage.py createsuperuser
